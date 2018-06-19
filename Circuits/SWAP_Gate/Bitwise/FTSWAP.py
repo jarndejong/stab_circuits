@@ -10,8 +10,8 @@ Created on Fri Jun  1 15:13:21 2018
 import random as rnd
 import numpy as np
 
-from /MEP.Functions.circuitfunctions.py import *
-from /MEP.Functions.stab_group_functions.py import *
+import MEP.Functions.circuitfunctions.py as cf
+import MEP.Functions.stab_group_functions.py as sf
 
 nq = 3 # number of qubits
 ng = 9
