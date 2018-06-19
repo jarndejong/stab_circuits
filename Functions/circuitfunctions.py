@@ -98,6 +98,19 @@ def initialize_zero_state(nq):
     phases = np.zeros(nq)
     return [sf.stabgroup(stab_list),phases.astype(int)]
 
+def initialize_pau_eigstate(nq,pau_list,phases):
+    stab_list = []
+    i = 0;
+    for st in pau_list:
+        pau = ['I']*nq
+        pau[i] = st
+        pau = sf.pauli_to_bitstring(''.join(pau))
+        stab_list.append(pau)
+        i+=1
+    return [sf.stabgroup(stab_list),phases]
+
+
+
 def measure_pauli(nq,pauli,state):
     stab_group = state[0]
     phases = state[1]
