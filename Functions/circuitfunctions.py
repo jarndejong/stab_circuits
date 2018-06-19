@@ -6,7 +6,7 @@ Created on Fri Jun  1 11:39:17 2018
 """
 
 import random as rnd
-import stab_group_functions as sf
+import stabgroupfunctions as sf
 import numpy as np
 
 ## Run through circuit
