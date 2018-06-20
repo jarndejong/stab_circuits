@@ -16,8 +16,7 @@ import simulationfunctions as smf
 import itertools as itt
 
 
-
-Ps = ['Z']
+Ps = ['X','Y','Z']
 Ms = ['X','Y','Z','I']
 k = 0
 start_time = time.time()
