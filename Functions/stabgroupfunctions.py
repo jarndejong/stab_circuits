@@ -9,10 +9,6 @@ import numpy as np
 import itertools as itt
 import copy
 
-#X = np.array([[0, 1],[1, 0]]);
-#Z = np.array([[1, 0],[ 0, -1]]);
-#Y = 1j*np.dot(X,Z);
-#I = np.matmul(X,X);
 
 def bitstring_to_pauli(stab_list):
     """This function takes an numpy array of size 2*1 with every entry a n-bit 
@@ -121,7 +117,6 @@ def min_noncomm(state,pauli):
         stab_matrix[ind,:] += stab_matrix[noncomm_stab_ind[0],:]
         phases[ind] += phases[noncomm_stab_ind[0]]
     stab_matrix = stab_matrix%2
-    print(phases)
     phases = (phases)%4
     return [[stabgroup(gen_matrix_to_stab_list(stab_matrix)),phases],noncomm_stab_ind[0]]
 

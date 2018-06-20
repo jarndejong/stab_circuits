@@ -13,10 +13,12 @@ def run_one_round(nq,pau_list_init,phase_list_init,circuit,p_m,p_s,meas_basis):
     m_list = measure_out(nq,state,meas_basis)
     return m_list
     
-def measure_out(nq,state,meas_basis):
+def measure_out(nq,state,meas_basis_list):
     measurements = []
-    for pauli in meas_basis:
-        paulim = cf.initialize_pau_eigstate(nq,pauli,[0]*nq)
+    i = 0
+    for pauli in meas_basis_list:
+        paulim = cf.create_weight1_pauli(nq,i,pauli)
         [state,m] = cf.measure_pauli(nq,paulim,state);
         measurements.append(m)
+        i+=1
     return measurements

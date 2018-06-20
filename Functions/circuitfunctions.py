@@ -111,7 +111,11 @@ def initialize_pau_eigstate(nq,pau_list,phases):
         i+=1
     return [sf.stabgroup(stab_list),phases]
 
-
+def create_weight1_pauli(nq,qn,pauli1):
+    pau = ['I']*nq
+    pau[qn] = pauli1
+    pau = sf.pauli_to_bitstring(''.join(pau))
+    return pau
 
 def measure_pauli(nq,pauli,state):
     stab_group = state[0]
@@ -121,16 +125,16 @@ def measure_pauli(nq,pauli,state):
     total_space_group = sf.stabgroup(total_space_group);
     if sf.check_commuting(total_space_group)[0] == True:
         if sf.rank(total_space_group) == sf.rank(stab_group):
-            m = 0
+            m = 0;
             return [[stab_group,phases], m]
         else:
-            m = rnd.choice([0,2])
+            m = rnd.choice([0,2]);
             return [[total_space_group,phases.append(m)],1-m]
     elif sf.check_commuting(total_space_group)[0] == False:
         [[stab_group_min,phases_min], noncommind] = sf.min_noncomm(state,pauli);
         stab_list_min = sf.gen_matrix_to_stab_list(sf.gen_group_to_matrix(stab_group_min));
         stab_list_min[noncommind] = pauli
-        m = rnd.choice([0,2])
+        m = rnd.choice([0,2]);
         phases_min[noncommind] = m;
         return [[sf.stabgroup(stab_list_min),phases_min],1-m]
         
