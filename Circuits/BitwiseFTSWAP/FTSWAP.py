@@ -5,20 +5,11 @@ Created on Fri Jun  1 15:13:21 2018
 @author: Jarnd
 """
 
-import qecc as qe
-import random as rnd
-import circuitfunctions as cf
 
 nq = 3 # number of qubits
 ng = 9
-p = 0.01
-
-
-S1 = qe.Pauli('ZII')
-S2 = qe.Pauli('IZI')
-S3 = qe.Pauli('IIZ')
-
-stablist = [S1,S2,S3]
+p_m = 0
+p_s = 0
 
 gates = [0]*ng
 
@@ -34,6 +25,4 @@ gates[7] = [2,1,'CXf']
 gates[8] = [1,2,'CXf']
 
 ## Implement extra gates
-gates.insert(0,[0,'H'])
-
-print(cf.run_circuit(nq,stablist,gates,p))
+gates.insert(0,[1,'H'])
