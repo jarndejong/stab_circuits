@@ -102,6 +102,8 @@ def initialize_pau_eigstate(nq,pau_list,phases):
     stab_list = []
     i = 0;
     for st in pau_list:
+        if st == 'I':
+            continue
         pau = ['I']*nq
         pau[i] = st
         pau = sf.pauli_to_bitstring(''.join(pau))

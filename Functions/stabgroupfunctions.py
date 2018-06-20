@@ -6,7 +6,6 @@ Created on Wed Mar 28 13:52:00 2018
 """
 
 import numpy as np
-import math as mth
 import itertools as itt
 import copy
 
