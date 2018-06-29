@@ -27,6 +27,7 @@ for iteration in itt.product(Ps, repeat = nq):
             #print('initial state',list(iteration))
             measurements = smf.run_one_round(nq,iteration,phase_iteration,gates,p_m,p_s,list(meas_iteration))
             k+=1
+            
 
 stop_time = time.time()
 print(stop_time - start_time)
